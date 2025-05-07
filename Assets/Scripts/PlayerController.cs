@@ -13,8 +13,17 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        moveInput.x = Input.GetAxisRaw("Horizontal");
-        moveInput.y = Input.GetAxisRaw("Vertical");
+        moveInput = Vector2.zero;
+
+        if (Input.GetKey(KeyCode.W))
+            moveInput.y = 1;
+        if (Input.GetKey(KeyCode.S))
+            moveInput.y = -1;
+        if (Input.GetKey(KeyCode.D))
+            moveInput.x = 1;
+        if (Input.GetKey(KeyCode.A))
+            moveInput.x = -1;
+
         moveInput.Normalize();
     }
 
