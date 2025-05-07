@@ -4,6 +4,7 @@ public class Bullet : MonoBehaviour
 {
     public float speed = 15f;
     public float lifetime = 2f;
+    public int damage = 1;
 
     void Start()
     {
@@ -19,6 +20,12 @@ public class Bullet : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
+            Enemy enemy = collision.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+            }
+
             Destroy(gameObject);
         }
     }

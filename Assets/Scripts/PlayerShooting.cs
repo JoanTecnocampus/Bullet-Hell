@@ -5,10 +5,10 @@ public class PlayerShooting : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
     public float bulletSpeed = 15f;
-    public float fireRate = 0.10f;
+    public float fireRate = 0.5f;
 
     private Vector2 shootDirection;
-    private float fireCooldown = 0f;
+    private float nextFireTime = 0f;
 
     void Update()
     {
@@ -23,15 +23,16 @@ public class PlayerShooting : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow))
             shootDirection += Vector2.right;
 
-        fireCooldown -= Time.deltaTime;
-
-        if (shootDirection != Vector2.zero && fireCooldown <= 0f)
+        if (shootDirection != Vector2.zero)
         {
             float angle = Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0f, 0f, angle);
 
-            Shoot(shootDirection.normalized);
-            fireCooldown = fireRate;
+            if (Time.time >= nextFireTime)
+            {
+                Shoot(shootDirection.normalized);
+                nextFireTime = Time.time + fireRate;
+            }
         }
     }
 
