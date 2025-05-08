@@ -1,17 +1,17 @@
 using UnityEngine;
 
-public class Pickup : MonoBehaviour
+public class Pickup_x3 : MonoBehaviour
 {
-    public bool activateDoubleShoot = false;
+    //public bool activateTripleShoot = false;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("PickUp Cogido");
+            Debug.Log("PickUpx3 Cogido");
             PlayerShooting shooting = other.GetComponent<PlayerShooting>();
-            shooting.doubleShoot = true; // ACTIVA doble disparo
-            shooting.activarx2();
+            shooting.tripleShoot = true; // ACTIVA triple disparo
+            shooting.activarx3();
 
             Destroy(gameObject); // Destruye el pickup una vez recogido
         }

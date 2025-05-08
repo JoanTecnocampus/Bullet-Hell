@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3017127291361850015}
   - component: {fileID: 1844089583200096031}
   - component: {fileID: -1762458928063579729}
-  - component: {fileID: -3453290868766703374}
+  - component: {fileID: -1324134063145913934}
   m_Layer: 0
   m_Name: Icon x2 PickUp
   m_TagString: PickUpx2
@@ -135,7 +135,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 4.05, y: 3.18}
   m_EdgeRadius: 0
---- !u!114 &-3453290868766703374
+--- !u!114 &-1324134063145913934
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
