@@ -446,8 +446,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 3973305024497140210, guid: 4b017d4848c164a4cbf343796cf8f6ae, type: 3}
   firePoint: {fileID: 1827161622}
+  firePointx2: {fileID: 0}
+  firePointx3: {fileID: 0}
   bulletSpeed: 15
-  fireRate: 0.5
+  fireRate: 0.1
+  doubleShoot: 0
+  tripleShoot: 0
 --- !u!1 &1827161621
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,7 +573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed88c5221ec3f574c92a3503a534482d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  maxHealth: 50
 --- !u!1001 &1480627508681061323
 PrefabInstance:
   m_ObjectHideFlags: 0
