@@ -4,7 +4,12 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Menu
+    - PickUpx2
+    - PickUpx3
+    - Icon Shield PickUp
+    - Enemy
+    - New tag
+    - Menu
   layers:
   - Default
   - TransparentFX
