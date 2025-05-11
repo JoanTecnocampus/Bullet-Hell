@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PickUpx2
   - PickUpx3
+  - Icon Shield PickUp
   layers:
   - Default
   - TransparentFX
