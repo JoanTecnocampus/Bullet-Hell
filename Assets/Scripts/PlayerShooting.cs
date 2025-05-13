@@ -12,6 +12,7 @@ public class PlayerShooting : MonoBehaviour
     public float fireRate = 0.10f;
     public bool doubleShoot = false;
     public bool tripleShoot = false;
+    public bool bounceShot = false;
 
     private Vector2 shootDirection;
     private float fireCooldown = 0f;
@@ -90,11 +91,13 @@ public class PlayerShooting : MonoBehaviour
     {
         firePointx2.gameObject.SetActive(true);
         Debug.Log("Activado doubleshoot");
+        /*
         if (tripleShoot == true)
         {
             tripleShoot = false;
             Debug.Log("Desactivado tripleShoot");
         }
+        */
         StartCoroutine(DisableDoubleShootAfterDelay(5f));
         //firePointx2.gameObject.SetActive(false);
     }
@@ -127,5 +130,18 @@ public class PlayerShooting : MonoBehaviour
         firePointx2.gameObject.SetActive(false);
         firePointx3.gameObject.SetActive(false);
         Debug.Log("tripleShoot desactivado");
+    }
+    public void ActivarRebote(float tiempo)
+    {
+        bounceShot = true;
+        Debug.Log("Rebote activado");
+        StartCoroutine(DesactivarReboteDespues(tiempo));
+    }
+
+    private IEnumerator DesactivarReboteDespues(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        bounceShot = false;
+        Debug.Log("Rebote desactivado");
     }
 }
