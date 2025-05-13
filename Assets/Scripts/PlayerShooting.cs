@@ -43,7 +43,6 @@ public class PlayerShooting : MonoBehaviour
 
     public void Shoot(Vector2 direction)
     {
-        
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -53,9 +52,9 @@ public class PlayerShooting : MonoBehaviour
         if (rb != null)
         {
             rb.linearVelocity = direction * bulletSpeed;
-        }
-        
+        }        
         // Si doble disparo est√° activado, dispara tambi√©n desde firePointx2
+        // Si doble disparo est· activado, dispara tambiÈn desde firePointx2
         if (doubleShoot == true)
         {
             //tripleShoot = false;
@@ -68,6 +67,7 @@ public class PlayerShooting : MonoBehaviour
                 rb2.linearVelocity = direction * bulletSpeed;
         }
         // Si doble disparo est√° activado, dispara tambi√©n desde firePointx2
+        // Si doble disparo est· activado, dispara tambiÈn desde firePointx2
         if (tripleShoot == true)
         {
             //doubleShoot = false;
@@ -98,7 +98,6 @@ public class PlayerShooting : MonoBehaviour
         StartCoroutine(DisableDoubleShootAfterDelay(5f));
         //firePointx2.gameObject.SetActive(false);
     }
-    
     private IEnumerator DisableDoubleShootAfterDelay(float delay)
     {
         Debug.Log("Empieza contador doubleShoot");
@@ -107,7 +106,6 @@ public class PlayerShooting : MonoBehaviour
         firePointx2.gameObject.SetActive(false);
         Debug.Log("doubleShoot desactivado");
     }
-    
     public void activarx3()
     {
         firePointx2.gameObject.SetActive(true);
@@ -121,7 +119,6 @@ public class PlayerShooting : MonoBehaviour
         StartCoroutine(DisableTripleShootAfterDelay(5f));
         //firePointx3.gameObject.SetActive(false);
     }
-    
     private IEnumerator DisableTripleShootAfterDelay(float delay)
     {
         Debug.Log("Empieza contador tripleShoot");
@@ -131,5 +128,4 @@ public class PlayerShooting : MonoBehaviour
         firePointx3.gameObject.SetActive(false);
         Debug.Log("tripleShoot desactivado");
     }
-    
 }

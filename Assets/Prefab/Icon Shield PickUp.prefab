@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4809589141904178481}
   - component: {fileID: 8135066519011571856}
   - component: {fileID: 3728259864743197044}
+  - component: {fileID: -4670744047076733926}
   m_Layer: 0
   m_Name: Icon Shield PickUp
   m_TagString: Untagged
@@ -118,7 +119,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -134,3 +135,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 45.86294, y: 56.79}
   m_EdgeRadius: 0
+--- !u!114 &-4670744047076733926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138766033453909719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7964ba91dbe2f14480701cc6dc7ec5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shieldDuration: 20
