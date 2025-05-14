@@ -1,32 +1,44 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class Bullet : MonoBehaviour
 {
     public float speed = 15f;
-    public float lifetime = 2f;
+    public float lifetime = 5f;
     public int damage = 1;
+    public bool canBounce = false;
+
+    private Rigidbody2D rb;
 
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+        rb.linearVelocity = transform.up * speed;
+
         Destroy(gameObject, lifetime);
     }
 
-    void Update()
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        transform.Translate(Vector3.up * speed * Time.deltaTime);
-    }
-
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Enemy"))
+        if (collision.collider.CompareTag("Enemy"))
         {
-            Enemy enemy = collision.GetComponent<Enemy>();
+            Enemy enemy = collision.collider.GetComponent<Enemy>();
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
             }
 
-            Destroy(gameObject);
+            if (!canBounce)
+            {
+                Destroy(gameObject);
+            }
+        }
+        else if (collision.collider.CompareTag("Wall"))
+        {
+            if (!canBounce)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

@@ -294,6 +294,7 @@ MonoBehaviour:
   fireRate: 0.1
   doubleShoot: 0
   tripleShoot: 0
+  bounceShot: 0
 --- !u!114 &6562219441176709053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,4 +307,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae221a608ff5eb40984021cb80cce3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shieldVisual: {fileID: 2138766033453909719, guid: 85649ef0a0e904144b5785e79f9f02e8, type: 3}
+  shieldVisual: {fileID: 0}

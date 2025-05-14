@@ -18,8 +18,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - Bullet
   - 
   - 
   - 
@@ -47,6 +47,15 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 435922591
+    locked: 0
+  - name: Bullet
+    uniqueID: 949085231
+    locked: 0
+  - name: Enemy
+    uniqueID: 731656639
     locked: 0
   m_RenderingLayers:
   - Default
