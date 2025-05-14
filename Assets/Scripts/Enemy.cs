@@ -14,6 +14,16 @@ public class Enemy : MonoBehaviour
     public float stopDistance = 2.0f; // Distancia a la que se detiene el enemigo
 
     private Transform player;
+    
+    public int randomGeneratePowerUp;
+    public int randomPowerUp;
+    
+    public GameObject x2PickUp;
+    public GameObject x3PickUp;
+    public GameObject shieldPickUp;
+    public GameObject bouncyPickUp;
+    public GameObject moreHealthPickUp;
+
 
     void Start()
     {
@@ -62,6 +72,7 @@ public class Enemy : MonoBehaviour
 
         if (currentHealthEnemy <= 0)
         {
+            generateProbability();
             Die();
         }
     }
@@ -75,6 +86,71 @@ public class Enemy : MonoBehaviour
             spriteRenderer.color = originalColor;
         }
         damageFlashCoroutine = null;
+    }
+
+    void generateProbability()
+    {
+        // Random del 1 al 10 para decidir si se genera el PowerUp
+        randomGeneratePowerUp = Random.Range(1, 11);
+        Debug.Log("Número aleatorio probabilidad generar PowerUp: " + randomGeneratePowerUp);
+
+        switch (randomGeneratePowerUp)
+        {
+            case 6:
+                Debug.Log("¡Se activó el evento especial del 6!");
+                // Aquí va tu lógica especial, por ejemplo:
+                generatePowerUp();
+                break;
+            default:
+                Debug.Log("No pasó nada especial.");
+                break;
+        }
+    }
+
+    void generatePowerUp()
+    {
+        // Random del 1 al 5 para decidir cual PowerUp se genera
+        randomPowerUp = Random.Range(1, 6);
+        Debug.Log("Número aleatorio Generar PowerUp: " + randomPowerUp);
+        
+        switch (randomPowerUp)
+        {
+            case 1:
+                Debug.Log("Salió el 1");
+                generatePickup(x2PickUp);
+                break;
+            case 2:
+                Debug.Log("Salió el 2");
+                generatePickup(x3PickUp);
+                break;
+            case 3:
+                Debug.Log("Salió el 3");
+                generatePickup(shieldPickUp);
+                break;
+            case 4:
+                Debug.Log("Salió el 4");
+                generatePickup(bouncyPickUp);
+                break;
+            case 5:
+                Debug.Log("Salió el 5");
+                generatePickup(moreHealthPickUp);
+                break;
+            default:
+                Debug.Log("Número fuera de rango");
+                break;
+        }
+    }
+
+    void generatePickup(GameObject pickUp)
+    {
+        if (pickUp != null)
+        {
+            Instantiate(pickUp, transform.position, Quaternion.identity);
+        }
+        else
+        {
+            Debug.LogWarning("No se asignó un prefab al spawner.");
+        }
     }
 
     void Die()

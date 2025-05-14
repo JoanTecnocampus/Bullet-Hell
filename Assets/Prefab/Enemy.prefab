@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2268861745964791769}
   - component: {fileID: 262897250298862332}
   - component: {fileID: 3421831249074042487}
-  - component: {fileID: 1496045039471513246}
+  - component: {fileID: 1642526554096616551}
   - component: {fileID: 199756431677868052}
   m_Layer: 0
   m_Name: Enemy
@@ -165,7 +165,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &1496045039471513246
+--- !u!114 &1642526554096616551
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -181,7 +181,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   firePointEnemy: {fileID: 6616030826744013541}
   bulletSpeed: 15
-  fireRate: 0.5
+  fireRate: 1
   shooting: 1
 --- !u!114 &199756431677868052
 MonoBehaviour:
@@ -198,6 +198,13 @@ MonoBehaviour:
   maxHealthEnemy: 3
   moveSpeed: 2
   stopDistance: 5
+  randomGeneratePowerUp: 0
+  randomPowerUp: 0
+  x2PickUp: {fileID: 5750436281431023857, guid: 0a9336b73d37405479884234bbfae7da, type: 3}
+  x3PickUp: {fileID: 5739868497684594209, guid: 0b475dcaaa348a2499c70546aebfff7f, type: 3}
+  shieldPickUp: {fileID: 2138766033453909719, guid: 85649ef0a0e904144b5785e79f9f02e8, type: 3}
+  bouncyPickUp: {fileID: 1723952404439734656, guid: e69918a36cc60824b982cc1e76230ee8, type: 3}
+  moreHealthPickUp: {fileID: 7403066496180397062, guid: 2044d3c9b81312b40b5ab32c7ec0b3d5, type: 3}
 --- !u!1 &3791210324752909453
 GameObject:
   m_ObjectHideFlags: 0
