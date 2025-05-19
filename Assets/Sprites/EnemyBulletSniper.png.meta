@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e6c21bcaca38d904dac0884ba283a4da
+guid: b6948c803c329694390ea07520301318
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5576685416563272651
-    second: Health Bar_0
+      213: 3376394242320887248
+    second: EnemyBulletSniper_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Health Bar_0
+      name: EnemyBulletSniper_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 2
-        width: 469
-        height: 65
+        x: 29
+        y: 19
+        width: 7
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 53415a10922ab92b0800000000000000
-      internalID: -5576685416563272651
+      spriteID: 0dde53bacac5bde20800000000000000
+      internalID: 3376394242320887248
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Health Bar_0: -5576685416563272651
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

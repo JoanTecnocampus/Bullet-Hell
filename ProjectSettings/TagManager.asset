@@ -11,6 +11,7 @@ TagManager:
   - New tag
   - Menu
   - Shield
+  - counterText
   layers:
   - Default
   - TransparentFX

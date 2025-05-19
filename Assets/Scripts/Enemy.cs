@@ -155,6 +155,13 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
+        // Notificar al contador
+        if (EnemyCounter.instance != null)
+        {
+            EnemyCounter.instance.AddKill();
+        }
+
         Destroy(gameObject);
     }
+
 }

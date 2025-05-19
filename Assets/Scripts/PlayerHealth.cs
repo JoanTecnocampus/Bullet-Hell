@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class PlayerHealth : MonoBehaviour
     private Color originalColor;
 
     public bool shieldActive = false;
+    
+    public string sceneName;
 
     void Start()
     {
@@ -71,5 +74,6 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+        SceneManager.LoadScene(sceneName);
     }
 }

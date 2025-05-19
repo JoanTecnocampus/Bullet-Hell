@@ -323,6 +323,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealthPlayer: 10
   Slider: {fileID: 6414467428257875391, guid: 46dc3ec8f4fa2e7459bb6f76cc4e5121, type: 3}
+  shieldActive: 0
+  sceneName: Home Menu
 --- !u!1 &9048924823095629488
 GameObject:
   m_ObjectHideFlags: 0
