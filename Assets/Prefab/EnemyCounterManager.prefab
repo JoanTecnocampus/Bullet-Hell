@@ -45,5 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counterText: {fileID: 0}
-  EnemysLeft: 1
+  EnemysLeft: 10
   sceneName: Home Menu

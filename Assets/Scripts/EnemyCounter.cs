@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -14,12 +15,17 @@ public class EnemyCounter : MonoBehaviour
     {
         counterText = GameObject.Find("TextEnemyCount").GetComponent<Text>();
         UpdateText();
-        GameObject[] enemigos = GameObject.FindGameObjectsWithTag("Enemy");
+        /*GameObject[] enemigos = GameObject.FindGameObjectsWithTag("Enemy");
         EnemysLeft = enemigos.Length;
-        Debug.Log("Cantidad de enemigos: " + EnemysLeft);
+        Debug.Log("Cantidad de enemigos: " + EnemysLeft);*/
         counterText.text = EnemysLeft.ToString();
     }
-    
+
+    private void Update()
+    {
+        
+    }
+
     // private void Start()
     // {
     //     counterText.color = Color.white;
