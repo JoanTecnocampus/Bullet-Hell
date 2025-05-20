@@ -690,9 +690,17 @@ PrefabInstance:
       propertyPath: spawnInterval
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2214135832872590978, guid: e5b51a049bca591459626f434f64a50c, type: 3}
+      propertyPath: enemiesSpawned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5710602760996616564, guid: e5b51a049bca591459626f434f64a50c, type: 3}
       propertyPath: m_Name
       value: EnemySpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 5710602760996616564, guid: e5b51a049bca591459626f434f64a50c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

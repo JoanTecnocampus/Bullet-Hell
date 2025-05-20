@@ -53,8 +53,8 @@ public class PlayerShooting : MonoBehaviour
         {
             rb.linearVelocity = direction * bulletSpeed;
         }        
+        // Si doble disparo estÃ¡ activado, dispara tambiÃ©n desde firePointx2
         // Si doble disparo está activado, dispara también desde firePointx2
-        // Si doble disparo est� activado, dispara tambi�n desde firePointx2
         if (doubleShoot == true)
         {
             //tripleShoot = false;
@@ -66,8 +66,8 @@ public class PlayerShooting : MonoBehaviour
             if (rb2 != null)
                 rb2.linearVelocity = direction * bulletSpeed;
         }
+        // Si doble disparo estÃ¡ activado, dispara tambiÃ©n desde firePointx2
         // Si doble disparo está activado, dispara también desde firePointx2
-        // Si doble disparo est� activado, dispara tambi�n desde firePointx2
         if (tripleShoot == true)
         {
             //doubleShoot = false;
