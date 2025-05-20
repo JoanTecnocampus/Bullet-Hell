@@ -6,24 +6,26 @@ using UnityEngine.SceneManagement;
 public class EnemyCounter : MonoBehaviour
 {
     public Text counterText;   // Asignar desde el inspector
-    public int EnemysLeft;
+    private int EnemysLeft;
+    private int EnemysTotal;
     public string sceneName;
 
     public static EnemyCounter instance;
 
-    private void Start()
+    void Start()
     {
+        
         counterText = GameObject.Find("TextEnemyCount").GetComponent<Text>();
         UpdateText();
-        /*GameObject[] enemigos = GameObject.FindGameObjectsWithTag("Enemy");
-        EnemysLeft = enemigos.Length;
-        Debug.Log("Cantidad de enemigos: " + EnemysLeft);*/
-        counterText.text = EnemysLeft.ToString();
     }
 
     private void Update()
     {
-        
+        GameObject[] enemigos = GameObject.FindGameObjectsWithTag("Enemy");
+        EnemysLeft = enemigos.Length;
+        Debug.Log("Cantidad de enemigos: " + EnemysLeft);
+        counterText.text = EnemysLeft.ToString();
+        UpdateText();
     }
 
     // private void Start()
@@ -49,6 +51,7 @@ public class EnemyCounter : MonoBehaviour
 
     public void AddKill()
     {
+        EnemysTotal = EnemySpawner.instance.enemiesSpawned;
         EnemysLeft--;
         UpdateText();
     }
@@ -62,7 +65,7 @@ public class EnemyCounter : MonoBehaviour
             counterText.text = EnemysLeft.ToString();
         }
 
-        if (EnemysLeft == 0)
+        if (EnemysLeft == 0 && EnemysTotal == 10)
         {
             SceneManager.LoadScene(sceneName);
         }

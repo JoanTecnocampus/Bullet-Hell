@@ -15,17 +15,23 @@ public class EnemySpawner : MonoBehaviour
     public float spawnInterval = 2f;       // Tiempo entre spawns
     public int maxEnemies = 10;            // Máximo de enemigos que se pueden spawnear
     
-    private int enemiesSpawned = 0;
+    public int enemiesSpawned = 0;
     
-    public int randomSpawner;
     public int randomEnemy;
+    
+    public static EnemySpawner instance;
+    
+    void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
         InvokeRepeating("SpawnEnemy", 0f, spawnInterval);
         
     }
-
+    
     /*void chooceSpawner()
     {
         // Random del 1 al 6 para decidir si se genera el PowerUp
