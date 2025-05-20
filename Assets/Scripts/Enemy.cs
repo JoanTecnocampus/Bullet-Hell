@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour
     public GameObject bouncyPickUp;
     public GameObject moreHealthPickUp;
 
+    private bool bIsDead = false;
 
     void Start()
     {
@@ -61,6 +62,8 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if(bIsDead) return;
+
         currentHealthEnemy -= damage;
 
         if (damageFlashCoroutine != null)
@@ -160,7 +163,7 @@ public class Enemy : MonoBehaviour
         {
             EnemyCounter.instance.AddKill();
         }
-
+        bIsDead = true;
         Destroy(gameObject);
     }
 

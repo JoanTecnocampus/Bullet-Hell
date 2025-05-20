@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Background.unity
     guid: 7d04799113ff6244caa9612649d95ea5
+  - enabled: 1
+    path: Assets/Scenes/BulletHellScene.unity
+    guid: 93dffc03e442c664f978bb94255c923d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

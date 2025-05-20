@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Enemy
+  - PickUpx2
+  - Shield
+  - PickUpx3
+  - Icon Bounce PickUp
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -38,6 +44,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: background
+    uniqueID: 482197435
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

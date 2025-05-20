@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4637111197034285201, guid: 3cbd9432ffebdd749a141c257dbb03d7, type: 3}
+  m_Sprite: {fileID: 2208703988740019828, guid: 3cbd9432ffebdd749a141c257dbb03d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -179,3 +179,4 @@ MonoBehaviour:
   lifetime: 2
   damage: 1
   canBounce: 0
+  maxBounces: 3
