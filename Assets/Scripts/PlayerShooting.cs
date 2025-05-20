@@ -18,6 +18,8 @@ public class PlayerShooting : MonoBehaviour
     public Transform firePointx3;
     public bool doubleShoot = false;
     public bool tripleShoot = false;
+    public bool reboteShoot = false;
+
 
     void Update()
     {
@@ -63,7 +65,7 @@ public class PlayerShooting : MonoBehaviour
         Bullet bulletScript = bullet.GetComponent<Bullet>();
         if (bulletScript != null)
         {
-            bulletScript.canBounce = reboteActivo;
+            bulletScript.canBounce = reboteShoot;
         }
 
         if (doubleShoot)
@@ -159,5 +161,14 @@ public class PlayerShooting : MonoBehaviour
     {
         reboteActivo = true;
         reboteTiempoRestante = duracion;
+
+        StartCoroutine(DisableReboteAfterDelay(duracion));
+    }
+
+    private IEnumerator DisableReboteAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        reboteShoot = false;
+        reboteActivo = false;
     }
 }

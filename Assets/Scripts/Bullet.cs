@@ -7,6 +7,8 @@ public class Bullet : MonoBehaviour
     public float lifetime = 5f;
     public int damage = 1;
     public bool canBounce = false;
+    public int maxBounces = 3;
+    private int actualBounces = 0;
 
     private Rigidbody2D rb;
 
@@ -33,6 +35,24 @@ public class Bullet : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+
+        else if (collision.collider.CompareTag("Wall"))
+        {
+            if (!canBounce)
+            {
+                Destroy(gameObject);
+                return;
+            }
+        }
+
+        actualBounces++;
+
+        if (actualBounces > maxBounces)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         else if (collision.collider.CompareTag("Wall"))
         {
             if (!canBounce)
