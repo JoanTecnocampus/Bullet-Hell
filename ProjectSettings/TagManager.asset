@@ -3,15 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags:
-  - PickUpx2
-  - PickUpx3
-  - Icon Shield PickUp
-  - Enemy
-  - New tag
-  - Menu
-  - Icon Bounce PickUp
-  - Wall
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -19,9 +11,9 @@ TagManager:
   - 
   - Water
   - UI
-  - Player
-  - Bullet
-  - Background
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -46,20 +38,8 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
-    uniqueID: 3397346745
-    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Player
-    uniqueID: 435922591
-    locked: 0
-  - name: Bullet
-    uniqueID: 949085231
-    locked: 0
-  - name: Enemy
-    uniqueID: 731656639
     locked: 0
   m_RenderingLayers:
   - Default

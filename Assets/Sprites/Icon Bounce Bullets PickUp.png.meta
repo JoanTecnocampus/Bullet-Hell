@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3cbd9432ffebdd749a141c257dbb03d7
+guid: d5a57575535a43c45b0054c9f4f812c8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2208703988740019828
-    second: Bullet_0
+      213: 7564767235565488993
+    second: Icon Bounce Bullets PickUp_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bullet_0
+      name: Icon Bounce Bullets PickUp_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 32
-        height: 32
+        y: 55
+        width: 225
+        height: 115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 47656d65394e6ae10800000000000000
-      internalID: 2208703988740019828
+      spriteID: 16b056c88b37bf860800000000000000
+      internalID: 7564767235565488993
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Bullet_0: 2208703988740019828
+      Icon Bounce Bullets PickUp_0: 7564767235565488993
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

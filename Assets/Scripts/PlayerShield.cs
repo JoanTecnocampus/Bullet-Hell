@@ -11,7 +11,10 @@ public class PlayerShield : MonoBehaviour
 
         isShieldActive = true;
         shieldVisual.SetActive(true);
-
+        
+        PlayerHealth TakeDamagePlayer = GetComponent<PlayerHealth>();
+        TakeDamagePlayer.shieldActive = true; 
+        
         Invoke(nameof(DeactivateShield), duration);
     }
 
@@ -19,6 +22,9 @@ public class PlayerShield : MonoBehaviour
     {
         isShieldActive = false;
         shieldVisual.SetActive(false);
+        
+        PlayerHealth TakeDamagePlayer = GetComponent<PlayerHealth>();
+        TakeDamagePlayer.shieldActive = false; 
     }
 
     public bool IsShieldActive() => isShieldActive;

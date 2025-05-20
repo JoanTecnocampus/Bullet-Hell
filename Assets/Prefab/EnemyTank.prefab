@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1642526554096616551}
   - component: {fileID: 199756431677868052}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: EnemyTank
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,9 +30,9 @@ Transform:
   m_GameObject: {fileID: 295449146660819544}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 6, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 6.0694, y: 0.1365, z: 0}
+  m_LocalScale: {x: 2.531822, y: 2.531822, z: 2.531822}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6616030826744013541}
   m_Father: {fileID: 0}
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2540028914066445034, guid: 1c62739f72348434a9495da6dedfcaf3, type: 3}
+  m_Sprite: {fileID: -6144695337109493344, guid: 60d46d3cb904ecf4fb54532bae5b4fad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -126,17 +126,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.000513196, y: 0.0030328482}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.19, y: 0.77}
+    oldSize: {x: 0.61, y: 0.31}
     newSize: {x: 1.19, y: 0.77}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.19, y: 0.77}
+  m_Size: {x: 0.62117684, y: 0.32466474}
   m_EdgeRadius: 0
 --- !u!50 &3421831249074042487
 Rigidbody2D:
@@ -177,13 +177,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd180364142ee546b11937cf4b13bfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyBulletPrefab: {fileID: 7768207013560146916, guid: 9ec3a780a42d45e4bb20dfe3eaad27fb, type: 3}
+  enemyBulletPrefab: {fileID: 7768207013560146916, guid: 31fab8d9d3670ae4ba3857fd4f16cdac, type: 3}
   Player: {fileID: 0}
   firePointEnemy: {fileID: 6616030826744013541}
-  bulletSpeed: 15
-  fireRate: 1
+  bulletSpeed: 10
+  fireRate: 0.75
   shooting: 1
-  shootingDistance: 10
+  shootingDistance: 5
 --- !u!114 &199756431677868052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,9 +196,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed88c5221ec3f574c92a3503a534482d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealthEnemy: 5
-  moveSpeed: 2
-  stopDistance: 5
+  maxHealthEnemy: 10
+  moveSpeed: 1
+  stopDistance: 3
   randomGeneratePowerUp: 0
   randomPowerUp: 0
   x2PickUp: {fileID: 5750436281431023857, guid: 0a9336b73d37405479884234bbfae7da, type: 3}
@@ -216,7 +216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6616030826744013541}
   m_Layer: 0
-  m_Name: FirePointEnemy
+  m_Name: TankFirePointEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -231,7 +231,7 @@ Transform:
   m_GameObject: {fileID: 3791210324752909453}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -1, w: 0}
-  m_LocalPosition: {x: 0.685, y: 0.008, z: -0.00023166506}
+  m_LocalPosition: {x: 0.345, y: -0.014, z: -0.00023166506}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
