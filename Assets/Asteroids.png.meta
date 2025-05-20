@@ -1159,7 +1159,49 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Asteroids_0: -2244543243340742949
+      Asteroids_1: 2619520171403366046
+      Asteroids_10: 1031131993308064179
+      Asteroids_11: 750050500109240725
+      Asteroids_12: -7104540694748506238
+      Asteroids_13: 5907881119353872011
+      Asteroids_14: -7502166565212197942
+      Asteroids_15: -1787493986476153839
+      Asteroids_16: 3613507152956987872
+      Asteroids_17: 3820930954083408551
+      Asteroids_18: -360415040057374862
+      Asteroids_19: -8850526130370417714
+      Asteroids_2: 1335499673870057088
+      Asteroids_20: 194369119275557004
+      Asteroids_21: -7747959882323533515
+      Asteroids_22: 10232479435807909
+      Asteroids_23: -6080968486880380583
+      Asteroids_24: 5175908514787634643
+      Asteroids_25: -9166981146587973188
+      Asteroids_26: -221676209579804422
+      Asteroids_27: -5275164243449462585
+      Asteroids_28: 4565244339667762796
+      Asteroids_29: -7524349075605609760
+      Asteroids_3: 1507908627372422575
+      Asteroids_30: -5534822883113934175
+      Asteroids_31: 8985461669548633969
+      Asteroids_32: 7163157180007714116
+      Asteroids_33: -1476659935899769070
+      Asteroids_34: -6846429076351484011
+      Asteroids_35: 475830800899486979
+      Asteroids_36: 8929571435542828719
+      Asteroids_37: 4921443149741035703
+      Asteroids_38: -6982675844121065594
+      Asteroids_39: 1346621315598343807
+      Asteroids_4: -7919934119786583522
+      Asteroids_40: -2714899582225672148
+      Asteroids_41: 3488544135894370702
+      Asteroids_5: -1929366605773643366
+      Asteroids_6: -999273910119505843
+      Asteroids_7: 8961905289132254908
+      Asteroids_8: 5910077189670250263
+      Asteroids_9: -8865693707184755064
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

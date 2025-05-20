@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Icon Bounce PickUp_0: 4970683114917814370
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

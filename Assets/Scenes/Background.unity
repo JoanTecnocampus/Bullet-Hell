@@ -167,6 +167,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 6791854582686679439, guid: 8f44952d25911ea4eb093e9dce3b236f, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6791854582686679439, guid: 8f44952d25911ea4eb093e9dce3b236f, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 731656639
+      objectReference: {fileID: 0}
     - target: {fileID: 7351796934749956018, guid: 8f44952d25911ea4eb093e9dce3b236f, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -348,7 +356,7 @@ GameObject:
   m_Component:
   - component: {fileID: 616303793}
   - component: {fileID: 616303792}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,8 +404,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1765253149
-  m_SortingLayer: -1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -6389993170033836399, guid: acddda8fc21098e4281f203c8210bff2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -769,7 +777,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -919,6 +927,14 @@ PrefabInstance:
     - target: {fileID: 1584144184396967585, guid: 464b062d52cb8fa4a8861262018e0b44, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4172365061248822421, guid: 464b062d52cb8fa4a8861262018e0b44, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4172365061248822421, guid: 464b062d52cb8fa4a8861262018e0b44, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 435922591
       objectReference: {fileID: 0}
     - target: {fileID: 7978128242596094633, guid: 464b062d52cb8fa4a8861262018e0b44, type: 3}
       propertyPath: m_Name
