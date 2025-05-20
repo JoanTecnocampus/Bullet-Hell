@@ -7,17 +7,29 @@ public class Enemy : MonoBehaviour
     private int currentHealth;
 
     private SpriteRenderer spriteRenderer;
+    private Coroutine damageFlashCoroutine;
+    private Color originalColor;
 
     void Start()
     {
         currentHealth = maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            originalColor = spriteRenderer.color;
+        }
     }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        StartCoroutine(DamageFlash());
+
+        if (damageFlashCoroutine != null)
+        {
+            StopCoroutine(damageFlashCoroutine);
+        }
+
+        damageFlashCoroutine = StartCoroutine(DamageFlash());
 
         if (currentHealth <= 0)
         {
@@ -29,13 +41,11 @@ public class Enemy : MonoBehaviour
     {
         if (spriteRenderer != null)
         {
-            Color originalColor = spriteRenderer.color;
-
             spriteRenderer.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0.5f);
             yield return new WaitForSeconds(0.1f);
-
             spriteRenderer.color = originalColor;
         }
+        damageFlashCoroutine = null;
     }
 
     void Die()
