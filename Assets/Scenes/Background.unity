@@ -808,7 +808,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5764645386945317532, guid: 464b062d52cb8fa4a8861262018e0b44, type: 3}
       propertyPath: reboteShoot
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1302773415107049544, guid: 464b062d52cb8fa4a8861262018e0b44, type: 3}
       propertyPath: m_Layer

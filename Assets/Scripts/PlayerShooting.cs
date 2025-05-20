@@ -65,7 +65,7 @@ public class PlayerShooting : MonoBehaviour
         Bullet bulletScript = bullet.GetComponent<Bullet>();
         if (bulletScript != null)
         {
-            bulletScript.canBounce = reboteShoot;
+            bulletScript.canBounce = reboteActivo;
         }
 
         if (doubleShoot)
@@ -159,6 +159,7 @@ public class PlayerShooting : MonoBehaviour
 
     public void ActivarRebote(float duracion)
     {
+        //reboteShoot = true;
         reboteActivo = true;
         reboteTiempoRestante = duracion;
 
