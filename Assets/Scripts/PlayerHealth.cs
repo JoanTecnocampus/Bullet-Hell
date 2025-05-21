@@ -76,4 +76,17 @@ public class PlayerHealth : MonoBehaviour
         Destroy(gameObject);
         SceneManager.LoadScene(sceneName);
     }
+    public void IncreaseMaxHealth(int amount)
+    {
+        maxHealthPlayer += amount;
+        currentHealthPlayer += amount;
+
+        if (currentHealthPlayer > maxHealthPlayer)
+            currentHealthPlayer = maxHealthPlayer;
+
+        Slider.maxValue = maxHealthPlayer;
+        Slider.value = currentHealthPlayer;
+    }
+
+
 }
