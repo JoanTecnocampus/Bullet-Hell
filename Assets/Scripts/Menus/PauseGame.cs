@@ -4,7 +4,7 @@ public class PauseGame : MonoBehaviour
 {
     public GameObject pauseMenuCanvas; // Asigna aquí el Canvas del menú de pausa
     private bool isPaused = false;
-
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
