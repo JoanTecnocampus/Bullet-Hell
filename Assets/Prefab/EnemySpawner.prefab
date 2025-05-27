@@ -155,7 +155,7 @@ MonoBehaviour:
   - {fileID: 4044635506583008149}
   spawnInterval: 2
   maxEnemies: 10
-  enemiesSpawned: 10
+  enemiesSpawned: 0
   randomEnemy: 0
 --- !u!1 &6463425911816724306
 GameObject:

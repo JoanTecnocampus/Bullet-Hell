@@ -72,6 +72,8 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
+        if (enemiesSpawned >= maxEnemies) return;
+        
         // Random del 1 al 3 para decidir cual PowerUp se genera
         randomEnemy = Random.Range(1, 4);
         Debug.Log("Número aleatorio Generar Enemy: " + randomEnemy);

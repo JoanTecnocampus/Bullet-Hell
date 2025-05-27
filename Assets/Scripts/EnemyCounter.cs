@@ -7,26 +7,25 @@ public class EnemyCounter : MonoBehaviour
 {
     public Text counterText;   // Asignar desde el inspector
     private int EnemysLeft;
-    private int EnemysTotal;
+    public int EnemysTotal;
     public string sceneName;
 
     public static EnemyCounter instance;
 
     void Start()
     {
-        
         counterText = GameObject.Find("TextEnemyCount").GetComponent<Text>();
         UpdateText();
     }
 
-    private void Update()
+    /*private void Update()
     {
         GameObject[] enemigos = GameObject.FindGameObjectsWithTag("Enemy");
         EnemysLeft = enemigos.Length;
         Debug.Log("Cantidad de enemigos: " + EnemysLeft);
         counterText.text = EnemysLeft.ToString();
         UpdateText();
-    }
+    }*/
 
     // private void Start()
     // {
@@ -47,6 +46,27 @@ public class EnemyCounter : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void AddEnemy()
+    {
+        EnemysTotal++;
+        EnemysLeft++;
+        UpdateText();
+    }
+
+    public void RemoveEnemy()
+    {
+        EnemysLeft--;
+        UpdateText();
+    }
+
+    public void UpdateEnemyCounter()
+    {
+        EnemysLeft = EnemysTotal;
+        Debug.Log("Cantidad de enemigos: " + EnemysLeft);
+        counterText.text = EnemysLeft.ToString();
+        UpdateText();
     }
 
     public void AddKill()

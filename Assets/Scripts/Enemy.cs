@@ -28,6 +28,15 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        if (EnemyCounter.instance != null)
+        {
+            EnemyCounter.instance.AddEnemy(); // ✅ Contador sube al generarse el enemigo
+        }
+
+        /*EnemyCounter updateEnemy = GetComponent<EnemyCounter>();
+        updateEnemy.EnemysTotal++;
+        updateEnemy.UpdateEnemyCounter();*/
+        
         currentHealthEnemy = maxHealthEnemy;
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null)
@@ -158,13 +167,21 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        // Notificar al contador
         if (EnemyCounter.instance != null)
         {
-            EnemyCounter.instance.AddKill();
+            EnemyCounter.instance.RemoveEnemy(); // ✅ Contador baja al morir el enemigo
         }
+
         bIsDead = true;
+        
+        // Notificar al contador
+        /*if (EnemyCounter.instance != null)
+        {
+            EnemyCounter.instance.AddKill();
+            EnemyCounter updateEnemy = GetComponent<EnemyCounter>();
+            updateEnemy.EnemysTotal--;
+            updateEnemy.UpdateEnemyCounter();
+        }*/
         Destroy(gameObject);
     }
-
 }
