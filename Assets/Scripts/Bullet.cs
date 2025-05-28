@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Enemy") || collision.CompareTag("EnemyTank") || collision.CompareTag("EnemySniper"))
         {
             Enemy enemy = collision.GetComponent<Enemy>();
             if (enemy != null)

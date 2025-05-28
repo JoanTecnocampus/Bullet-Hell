@@ -1,3 +1,4 @@
+//Codigo Mio
 using UnityEngine;
 using System.Collections;
 
@@ -11,13 +12,14 @@ public class Enemy : MonoBehaviour
     private Color originalColor;
 
     public float moveSpeed = 2.0f;
-    public float stopDistance = 2.0f; // Distancia a la que se detiene el enemigo
+    public float stopDistance = 2.0f; // Distancia a la que se detiene el enemigo si no hay slot
 
     private Transform player;
-    
+    private Transform targetSlot;
+
     public int randomGeneratePowerUp;
     public int randomPowerUp;
-    
+
     public GameObject x2PickUp;
     public GameObject x3PickUp;
     public GameObject shieldPickUp;
@@ -26,6 +28,11 @@ public class Enemy : MonoBehaviour
 
     private bool bIsDead = false;
 
+    public void AssignSlotExternally(Transform newSlot)
+    {
+        targetSlot = newSlot;
+    }
+    
     void Start()
     {
         if (EnemyCounter.instance != null)
@@ -33,10 +40,6 @@ public class Enemy : MonoBehaviour
             EnemyCounter.instance.AddEnemy(); // ✅ Contador sube al generarse el enemigo
         }
 
-        /*EnemyCounter updateEnemy = GetComponent<EnemyCounter>();
-        updateEnemy.EnemysTotal++;
-        updateEnemy.UpdateEnemyCounter();*/
-        
         currentHealthEnemy = maxHealthEnemy;
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null)
@@ -49,12 +52,46 @@ public class Enemy : MonoBehaviour
         {
             player = playerObj.transform;
         }
+
+        /*// Buscar slot disponible según el tag del enemigo
+        targetSlot = EnemySlotManager.Instance.GetFreeSlot(gameObject.tag);
+        if (targetSlot != null)
+        {
+            EnemySlotManager.Instance.AssignSlot(targetSlot, gameObject);
+        }*/
+        
+        targetSlot = EnemySlotManager.Instance.GetFreeSlot(gameObject.tag);
+        if (targetSlot != null)
+        {
+            EnemySlotManager.Instance.AssignSlot(targetSlot, gameObject);
+        }
+        else
+        {
+            // No hay slot, se registra como enemigo en espera
+            EnemySlotManager.Instance.RegisterWaitingEnemy(this);
+        }
+
     }
 
     void Update()
     {
-        if (player != null)
+        if (targetSlot != null)
         {
+            // Ir al slot si está asignado
+            float distance = Vector2.Distance(transform.position, targetSlot.position);
+            if (distance > 0.1f)
+            {
+                Vector2 direction = (targetSlot.position - transform.position).normalized;
+                transform.position += (Vector3)direction * moveSpeed * Time.deltaTime;
+
+                // (Opcional) Rotar al enemigo hacia el slot
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(0, 0, angle);
+            }
+        }
+        else if (player != null)
+        {
+            // Si no hay slot disponible, acercarse al jugador pero detenerse a cierta distancia
             float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
             if (distanceToPlayer > stopDistance)
@@ -62,7 +99,6 @@ public class Enemy : MonoBehaviour
                 Vector2 direction = (player.position - transform.position).normalized;
                 transform.position += (Vector3)direction * moveSpeed * Time.deltaTime;
 
-                // (Opcional) Rotar al enemigo hacia el jugador
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
                 transform.rotation = Quaternion.Euler(0, 0, angle);
             }
@@ -71,7 +107,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if(bIsDead) return;
+        if (bIsDead) return;
 
         currentHealthEnemy -= damage;
 
@@ -124,7 +160,7 @@ public class Enemy : MonoBehaviour
         // Random del 1 al 5 para decidir cual PowerUp se genera
         randomPowerUp = Random.Range(1, 6);
         Debug.Log("Número aleatorio Generar PowerUp: " + randomPowerUp);
-        
+
         switch (randomPowerUp)
         {
             case 1:
@@ -172,16 +208,12 @@ public class Enemy : MonoBehaviour
             EnemyCounter.instance.RemoveEnemy(); // ✅ Contador baja al morir el enemigo
         }
 
-        bIsDead = true;
-        
-        // Notificar al contador
-        /*if (EnemyCounter.instance != null)
+        if (targetSlot != null && EnemySlotManager.Instance != null)
         {
-            EnemyCounter.instance.AddKill();
-            EnemyCounter updateEnemy = GetComponent<EnemyCounter>();
-            updateEnemy.EnemysTotal--;
-            updateEnemy.UpdateEnemyCounter();
-        }*/
+            EnemySlotManager.Instance.ReleaseSlot(targetSlot); // ✅ Liberar el slot
+        }
+
+        bIsDead = true;
         Destroy(gameObject);
     }
 }

@@ -8,6 +8,7 @@ public class EnemyCounter : MonoBehaviour
     public Text counterText;   // Asignar desde el inspector
     private int EnemysLeft;
     public int EnemysTotal;
+    public int maxEnemys;
     public string sceneName;
 
     public static EnemyCounter instance;
@@ -61,20 +62,20 @@ public class EnemyCounter : MonoBehaviour
         UpdateText();
     }
 
-    public void UpdateEnemyCounter()
+    /*public void UpdateEnemyCounter()
     {
         EnemysLeft = EnemysTotal;
         Debug.Log("Cantidad de enemigos: " + EnemysLeft);
         counterText.text = EnemysLeft.ToString();
         UpdateText();
-    }
+    }*/
 
-    public void AddKill()
+    /*public void AddKill()
     {
         EnemysTotal = EnemySpawner.instance.enemiesSpawned;
         EnemysLeft--;
         UpdateText();
-    }
+    }*/
 
     void UpdateText()
     {
@@ -83,9 +84,10 @@ public class EnemyCounter : MonoBehaviour
             Debug.Log("Enemys Left: " + EnemysLeft);
             //counterText.text = "Enemys Left: " + EnemysLeft;
             counterText.text = EnemysLeft.ToString();
+            maxEnemys = EnemySpawner.instance.maxEnemies;
         }
 
-        if (EnemysLeft == 0 && EnemysTotal == 10)
+        if (EnemysLeft == 0 && EnemysTotal == maxEnemys)
         {
             SceneManager.LoadScene(sceneName);
         }

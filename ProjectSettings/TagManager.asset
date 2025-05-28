@@ -12,6 +12,8 @@ TagManager:
   - Menu
   - Shield
   - counterText
+  - EnemyTank
+  - EnemySniper
   layers:
   - Default
   - TransparentFX

@@ -13,9 +13,9 @@ public class EnemySpawner : MonoBehaviour
     public Transform enemySpawn4;
     public Transform enemySpawn5;*/
     public float spawnInterval = 2f;       // Tiempo entre spawns
-    public int maxEnemies = 10;            // Máximo de enemigos que se pueden spawnear
+    public int maxEnemies;            // Máximo de enemigos que se pueden spawnear
     
-    public int enemiesSpawned = 0;
+    public int enemiesSpawned;
     
     public int randomEnemy;
     
