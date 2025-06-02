@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
     public GameObject shieldPickUp;
     public GameObject bouncyPickUp;
     public GameObject moreHealthPickUp;
+    public GameObject explosionPrefab;
 
     private bool bIsDead = false;
 
@@ -164,6 +165,14 @@ public class Enemy : MonoBehaviour
             EnemyCounter.instance.AddKill();
         }
         bIsDead = true;
+
+
+        // Añadir Explosión
+        if (explosionPrefab != null)
+        {
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        }
+
         Destroy(gameObject);
     }
 

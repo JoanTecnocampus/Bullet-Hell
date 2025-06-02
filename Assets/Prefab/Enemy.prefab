@@ -206,6 +206,7 @@ MonoBehaviour:
   shieldPickUp: {fileID: 2138766033453909719, guid: 85649ef0a0e904144b5785e79f9f02e8, type: 3}
   bouncyPickUp: {fileID: 1723952404439734656, guid: e69918a36cc60824b982cc1e76230ee8, type: 3}
   moreHealthPickUp: {fileID: 7403066496180397062, guid: 2044d3c9b81312b40b5ab32c7ec0b3d5, type: 3}
+  explosionPrefab: {fileID: 6909103552517579231, guid: b3eb7f827d8084a41a7072dc4a028298, type: 3}
 --- !u!1 &3791210324752909453
 GameObject:
   m_ObjectHideFlags: 0
