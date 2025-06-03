@@ -28,6 +28,8 @@ public class Enemy : MonoBehaviour
 
     private bool bIsDead = false;
 
+    public GameObject explosionPrefab;
+
     public void AssignSlotExternally(Transform newSlot)
     {
         targetSlot = newSlot;
@@ -214,6 +216,15 @@ public class Enemy : MonoBehaviour
         }
 
         bIsDead = true;
+        
+        // Añadir Explosión
+        if (explosionPrefab != null)
+        {
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        }
+
+        Destroy(gameObject);
+        
         Destroy(gameObject);
     }
 }
