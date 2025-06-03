@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Bullet : MonoBehaviour
@@ -13,6 +14,7 @@ public class Bullet : MonoBehaviour
     public GameObject bulletExplosionPrefab;
 
     private Rigidbody2D rb;
+    private bool isExploding = false;
 
     void Start()
     {
@@ -21,16 +23,10 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, lifetime);
     }
 
-    void Explode()
-    {
-        if (bulletExplosionPrefab != null)
-        {
-            Instantiate(bulletExplosionPrefab, transform.position, Quaternion.identity);
-        }
-    }
-
     void OnCollisionEnter2D(Collision2D collision)
     {
+        if (isExploding) return;
+
         if (collision.collider.CompareTag("Enemy"))
         {
             Enemy enemy = collision.collider.GetComponent<Enemy>();
@@ -41,17 +37,15 @@ public class Bullet : MonoBehaviour
 
             if (!canBounce)
             {
-                Explode();
-                Destroy(gameObject);
+                StartCoroutine(ExplodeAndDestroy());
+                return;
             }
         }
-
         else if (collision.collider.CompareTag("Wall"))
         {
             if (!canBounce)
             {
-                Explode();
-                Destroy(gameObject);
+                StartCoroutine(ExplodeAndDestroy());
                 return;
             }
         }
@@ -60,8 +54,32 @@ public class Bullet : MonoBehaviour
 
         if (actualBounces > maxBounces)
         {
-            Explode();
-            Destroy(gameObject);
+            StartCoroutine(ExplodeAndDestroy());
         }
+    }
+
+    IEnumerator ExplodeAndDestroy()
+    {
+        isExploding = true;
+
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        if (sr != null)
+        {
+            sr.enabled = false;
+        }
+
+        if (bulletExplosionPrefab != null)
+        {
+            GameObject explosion = Instantiate(bulletExplosionPrefab, transform.position, Quaternion.identity);
+
+            Animator anim = explosion.GetComponent<Animator>();
+            if (anim != null)
+            {
+                float length = anim.GetCurrentAnimatorStateInfo(0).length;
+                yield return new WaitForSeconds(length);
+            }
+        }
+
+        Destroy(gameObject);
     }
 }
