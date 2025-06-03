@@ -17,6 +17,8 @@ public class PlayerHealth : MonoBehaviour
     
     public string sceneName;
 
+    public GameObject explosionPrefab;
+
     void Start()
     {
         // Inicializamos la salud actual como la salud máxima al comenzar el juego
@@ -73,6 +75,12 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
+        // Añadir Explosión
+        if (explosionPrefab != null)
+        {
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        }
+
         Destroy(gameObject);
         SceneManager.LoadScene(sceneName);
     }
