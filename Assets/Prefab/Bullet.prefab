@@ -180,3 +180,4 @@ MonoBehaviour:
   damage: 1
   canBounce: 0
   maxBounces: 3
+  bulletExplosionPrefab: {fileID: 8470445630959332544, guid: a507eee06bdb6694da7967edd676c6a9, type: 3}

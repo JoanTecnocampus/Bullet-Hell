@@ -10,14 +10,23 @@ public class Bullet : MonoBehaviour
     public int maxBounces = 3;
     private int actualBounces = 0;
 
+    public GameObject bulletExplosionPrefab;
+
     private Rigidbody2D rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.linearVelocity = transform.up * speed;
-
         Destroy(gameObject, lifetime);
+    }
+
+    void Explode()
+    {
+        if (bulletExplosionPrefab != null)
+        {
+            Instantiate(bulletExplosionPrefab, transform.position, Quaternion.identity);
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -32,6 +41,7 @@ public class Bullet : MonoBehaviour
 
             if (!canBounce)
             {
+                Explode();
                 Destroy(gameObject);
             }
         }
@@ -40,6 +50,7 @@ public class Bullet : MonoBehaviour
         {
             if (!canBounce)
             {
+                Explode();
                 Destroy(gameObject);
                 return;
             }
@@ -49,16 +60,8 @@ public class Bullet : MonoBehaviour
 
         if (actualBounces > maxBounces)
         {
+            Explode();
             Destroy(gameObject);
-            return;
-        }
-
-        else if (collision.collider.CompareTag("Wall"))
-        {
-            if (!canBounce)
-            {
-                Destroy(gameObject);
-            }
         }
     }
 }
