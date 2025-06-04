@@ -23,13 +23,13 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, lifetime);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collider)
     {
         if (isExploding) return;
 
-        if (collision.collider.CompareTag("Enemy"))
+        if (collider.CompareTag("Enemy") || collider.CompareTag("EnemyTank") || collider.CompareTag("EnemySniper"))
         {
-            Enemy enemy = collision.collider.GetComponent<Enemy>();
+            Enemy enemy = collider.GetComponent<Enemy>();
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
@@ -40,8 +40,12 @@ public class Bullet : MonoBehaviour
                 StartCoroutine(ExplodeAndDestroy());
                 return;
             }
+            else
+            {
+                rb.linearVelocity *= -1;
+            }
         }
-        else if (collision.collider.CompareTag("Wall"))
+        else if (collider.CompareTag("Wall"))
         {
             if (!canBounce)
             {
@@ -55,6 +59,7 @@ public class Bullet : MonoBehaviour
         if (actualBounces > maxBounces)
         {
             StartCoroutine(ExplodeAndDestroy());
+            return;
         }
     }
 
@@ -63,10 +68,7 @@ public class Bullet : MonoBehaviour
         isExploding = true;
 
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
-        if (sr != null)
-        {
-            sr.enabled = false;
-        }
+        if (sr != null) sr.enabled = false;
 
         if (bulletExplosionPrefab != null)
         {
@@ -77,6 +79,10 @@ public class Bullet : MonoBehaviour
             {
                 float length = anim.GetCurrentAnimatorStateInfo(0).length;
                 yield return new WaitForSeconds(length);
+            }
+            else
+            {
+                yield return new WaitForSeconds(0.5f);
             }
         }
 
