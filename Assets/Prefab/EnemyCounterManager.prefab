@@ -45,5 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counterText: {fileID: 0}
-  EnemysLeft: 10
+  EnemysTotal: 0
+  maxEnemys: 0
   sceneName: Home Menu
+  delayDestroyFloat: 0.5

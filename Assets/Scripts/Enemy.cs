@@ -35,8 +35,24 @@ public class Enemy : MonoBehaviour
         targetSlot = newSlot;
     }
     
+    public AudioSource[] AudioEnemyExplosion;
+    //private AudioSource AudioEnemyExplosion;
+
+    public float delayAudioFloat;
+    public bool audioPlaying;
+
+    public float delayDestroyFloat;
+    
+    void Awake()
+    {
+        AudioEnemyExplosion = GetComponents<AudioSource>();
+        AudioSource[] sources = GetComponents<AudioSource>();
+        Debug.Log("Total AudioSources: " + sources.Length);
+    }
+    
     void Start()
     {
+        //AudioEnemyExplosion = GetComponents<AudioSource>();
         if (EnemyCounter.instance != null)
         {
             EnemyCounter.instance.AddEnemy(); // ✅ Contador sube al generarse el enemigo
@@ -220,11 +236,36 @@ public class Enemy : MonoBehaviour
         // Añadir Explosión
         if (explosionPrefab != null)
         {
+            if (audioPlaying == false)
+            {
+                //AudioManager.Instance.PlaySound("enemyShoot");
+                //AudioEnemyExplosion.Play();
+                if (AudioEnemyExplosion.Length > 1)
+                {
+                    AudioEnemyExplosion[1].Play(); // El segundo AudioSource (Explosion)
+                }
+                audioPlaying = true;
+                StartCoroutine(DelayAudio(delayAudioFloat));
+                StartCoroutine(DelayDestroy(delayDestroyFloat));
+            }
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         }
-
-        Destroy(gameObject);
         
+        //Destroy(gameObject);
+    }
+    
+    private IEnumerator DelayAudio(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        audioPlaying = false;
+    }
+    
+    private IEnumerator DelayDestroy(float delay)
+    {
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<Rigidbody2D>().Sleep();
+        GetComponent<Collider2D>().enabled = false;
+        yield return new WaitForSeconds(delay);
         Destroy(gameObject);
     }
 }

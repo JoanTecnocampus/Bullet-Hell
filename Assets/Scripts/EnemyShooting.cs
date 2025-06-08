@@ -14,10 +14,22 @@ public class EnemyShooting : MonoBehaviour
     public float shootingDistance = 5f; // Distancia mínima para disparar
 
     private float fireCooldown = 0f;
+    
+    public AudioSource[] AudioEnemyShoot;
+    //public AudioSource AudioEnemyShoot;
 
-    private void Start()
+    public float delayAudioFloat;
+    public bool audioPlaying;
+
+    void Awake()
+    {
+        AudioEnemyShoot = GetComponents<AudioSource>();
+    }
+
+    void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
+        //AudioEnemyShoot = GetComponents<AudioSource>();
     }
 
     void Update()
@@ -55,6 +67,20 @@ public class EnemyShooting : MonoBehaviour
         Rigidbody2D rb = enemyBullet.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
+            if (AudioEnemyShoot != null)
+            {
+                if (audioPlaying == false)
+                {
+                    //AudioManager.Instance.PlaySound("enemyShoot");
+                    //AudioEnemyShoot.Play();
+                    if (AudioEnemyShoot.Length > 0)
+                    {
+                        AudioEnemyShoot[0].Play(); // El primer AudioSource (Shoot)
+                    }
+                    audioPlaying = true;
+                    StartCoroutine(DelayAudio(delayAudioFloat));
+                }
+            }
             rb.linearVelocity = direction * bulletSpeed;
         }
     }
@@ -65,5 +91,11 @@ public class EnemyShooting : MonoBehaviour
         yield return new WaitForSeconds(delay);
         shooting = false;
         Debug.Log("Disparo del enemigo desactivado");
+    }
+    
+    private IEnumerator DelayAudio(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        audioPlaying = false;
     }
 }

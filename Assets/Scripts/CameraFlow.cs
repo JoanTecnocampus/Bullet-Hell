@@ -3,9 +3,17 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     public Transform target;
+    private GameObject Player;
     public float smoothSpeed = 0.125f;
     public Vector3 offset;
 
+    void Start()
+    {
+        Player = GameObject.FindGameObjectWithTag("Player");
+        target = Player.transform;
+        //AudioEnemyShoot = GetComponents<AudioSource>();
+    }
+    
     void LateUpdate()
     {
         if (target == null) return;

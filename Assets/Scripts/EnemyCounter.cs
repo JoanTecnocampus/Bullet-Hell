@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -12,6 +13,8 @@ public class EnemyCounter : MonoBehaviour
     public string sceneName;
 
     public static EnemyCounter instance;
+    
+    public float delayDestroyFloat;
 
     void Start()
     {
@@ -89,7 +92,14 @@ public class EnemyCounter : MonoBehaviour
 
         if (EnemysLeft == 0 && EnemysTotal == maxEnemys)
         {
-            SceneManager.LoadScene(sceneName);
+            StartCoroutine(DelayDestroy(delayDestroyFloat));
+            
         }
+    }
+    
+    private IEnumerator DelayDestroy(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(sceneName);
     }
 }

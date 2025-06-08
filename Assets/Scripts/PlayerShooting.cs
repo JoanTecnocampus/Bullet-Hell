@@ -1,6 +1,9 @@
 //Codigo Mio
+
+using System;
 using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class PlayerShooting : MonoBehaviour
 {
@@ -20,7 +23,25 @@ public class PlayerShooting : MonoBehaviour
     public bool doubleShoot = false;
     public bool tripleShoot = false;
     public bool reboteShoot = false;
+    
+    //public AudioSource AudioPlayerShoot;
+    public AudioSource[] AudioPlayerShoot;
 
+    public float delayAudioFloat;
+    public bool audioPlaying;
+
+
+    void Awake()
+    {
+        AudioPlayerShoot = GetComponents<AudioSource>();
+        /*AudioSource[] sources = GetComponents<AudioSource>();
+        Debug.Log("Total AudioSources: " + sources.Length);*/
+    }
+    
+    void Start()
+    {
+        //AudioPlayerShoot = GetComponents<AudioSource>();
+    }
 
     void Update()
     {
@@ -60,6 +81,30 @@ public class PlayerShooting : MonoBehaviour
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
+            if (AudioPlayerShoot != null)
+            {
+                if (audioPlaying == false)
+                {
+                    //AudioManager.Instance.PlaySound("enemyShoot");
+                    //AudioEnemyExplosion.Play();
+                    if (AudioPlayerShoot.Length > 0)
+                    {
+                        AudioPlayerShoot[0].Play(); // El primero AudioSource (Shoot)
+                    }
+                    audioPlaying = true;
+                    StartCoroutine(DelayAudio(delayAudioFloat));
+                }
+            }
+            /*if (AudioPlayerShoot != null)
+            {
+                if (audioPlaying == false)
+                {
+                    //AudioManager.Instance.PlaySound("playerShoot");
+                    AudioPlayerShoot.Play();
+                    audioPlaying = true;
+                    StartCoroutine(DelayAudio(delayAudioFloat));
+                }
+            }*/
             rb.linearVelocity = direction * bulletSpeed;
         }
 
@@ -172,5 +217,11 @@ public class PlayerShooting : MonoBehaviour
         yield return new WaitForSeconds(delay);
         reboteShoot = false;
         reboteActivo = false;
+    }
+    
+    private IEnumerator DelayAudio(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        audioPlaying = false;
     }
 }

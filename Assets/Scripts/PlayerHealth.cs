@@ -18,7 +18,16 @@ public class PlayerHealth : MonoBehaviour
     public string sceneName;
 
     public GameObject explosionPrefab;
+    
+    public AudioSource[] AudioPlayerExplosion;
+    
+    public float delayDestroyFloat;
 
+    void Awake()
+    {
+        AudioPlayerExplosion = GetComponents<AudioSource>();
+    }
+    
     void Start()
     {
         // Inicializamos la salud actual como la salud máxima al comenzar el juego
@@ -78,11 +87,16 @@ public class PlayerHealth : MonoBehaviour
         // Añadir Explosión
         if (explosionPrefab != null)
         {
+            if (AudioPlayerExplosion.Length > 1)
+            {
+                AudioPlayerExplosion[1].Play(); // El segundo AudioSource (Explosion)
+            }
+            StartCoroutine(DelayDestroy(delayDestroyFloat));
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         }
 
-        Destroy(gameObject);
-        SceneManager.LoadScene(sceneName);
+        //Destroy(gameObject);
+        
     }
     public void IncreaseMaxHealth(int amount)
     {
@@ -95,6 +109,12 @@ public class PlayerHealth : MonoBehaviour
         Slider.maxValue = maxHealthPlayer;
         Slider.value = currentHealthPlayer;
     }
-
-
+    
+    private IEnumerator DelayDestroy(float delay)
+    {
+        GetComponent<SpriteRenderer>().enabled = false;
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(sceneName);
+        Destroy(gameObject);
+    }
 }

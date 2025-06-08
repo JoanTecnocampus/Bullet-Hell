@@ -12,7 +12,7 @@ public class Pickup_MaxHealth : MonoBehaviour
             if (playerHealth != null)
             {
                 playerHealth.IncreaseMaxHealth(extraHealth);
-                Debug.Log("Vida m·xima aumentada");
+                Debug.Log("Vida m√°xima aumentada");
             }
 
             Destroy(gameObject);
