@@ -1477,6 +1477,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Icon Bounce PickUp (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4932821917343299273, guid: 02c7ecb8d47f9d145be74ae9f1302d64, type: 3}
+      propertyPath: delayDestroyFloat
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5405150993037076273, guid: 02c7ecb8d47f9d145be74ae9f1302d64, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4192116
@@ -2700,7 +2704,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1698017399
 Transform:
   m_ObjectHideFlags: 0
@@ -2726,10 +2730,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 637f3600fa8d8a9488fefc3676ac6bae, type: 3}
-  m_Resource: {fileID: 8300000, guid: 637f3600fa8d8a9488fefc3676ac6bae, type: 3}
+  m_audioClip: {fileID: 8300000, guid: dcdca4826857d7747a6897b2b9064634, type: 3}
+  m_Resource: {fileID: 8300000, guid: dcdca4826857d7747a6897b2b9064634, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.196
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2825,7 +2829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2afae408edbcd074d9ccd2050e57c579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  AudioBackground: {fileID: 0}
 --- !u!1001 &1998714570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2834,6 +2838,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -368133391128149291, guid: cffad52bb9e41dd4b81aa23324b42a0b, type: 3}
+      propertyPath: sceneName
+      value: WinScene
+      objectReference: {fileID: 0}
     - target: {fileID: -368133391128149291, guid: cffad52bb9e41dd4b81aa23324b42a0b, type: 3}
       propertyPath: counterText
       value: 
@@ -3165,8 +3173,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2111470739}
     - target: {fileID: 6378019912258471578, guid: 464b062d52cb8fa4a8861262018e0b44, type: 3}
+      propertyPath: sceneName
+      value: LoseScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 6378019912258471578, guid: 464b062d52cb8fa4a8861262018e0b44, type: 3}
       propertyPath: shieldActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6378019912258471578, guid: 464b062d52cb8fa4a8861262018e0b44, type: 3}
       propertyPath: explosionPrefab

@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Home Menu.unity
     guid: 854218378bbf7654496d533f7922d4f5
   - enabled: 1
-    path: Assets/Scenes/BulletHellScene.unity
+    path: Assets/Scenes/Background.unity
     guid: 7d04799113ff6244caa9612649d95ea5
   - enabled: 1
     path: Assets/Scenes/Controls Menu.unity
@@ -26,5 +26,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestScene.unity
     guid: 00205163d8cdd7b44a8a9877cfcff8f0
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: a412c6d486cbbe647871547d11ed8490
+  - enabled: 1
+    path: Assets/Scenes/LoseScene.unity
+    guid: 733df1c0ff077c149963b8a827256cc2
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

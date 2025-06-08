@@ -121,7 +121,7 @@ public class Bullet : MonoBehaviour
             }
         }
 
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
     
     private IEnumerator DelayAudio(float delay)
