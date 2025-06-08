@@ -180,6 +180,11 @@ MonoBehaviour:
   speed: 15
   lifetime: 2
   damage: 1
+  bulletExplosionPrefab: {fileID: 0}
+  AudioBulletImpactPlayer: []
+  delayAudioFloat: 0
+  audioPlaying: 0
+  delayDestroyFloat: 0
 --- !u!82 &1737018714167924303
 AudioSource:
   m_ObjectHideFlags: 0
@@ -199,7 +204,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

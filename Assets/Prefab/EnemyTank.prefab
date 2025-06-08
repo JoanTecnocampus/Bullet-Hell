@@ -182,7 +182,7 @@ MonoBehaviour:
   enemyBulletPrefab: {fileID: 7768207013560146916, guid: 31fab8d9d3670ae4ba3857fd4f16cdac, type: 3}
   Player: {fileID: 0}
   firePointEnemy: {fileID: 6616030826744013541}
-  bulletSpeed: 10
+  bulletSpeed: 0.0001
   fireRate: 0.75
   shooting: 1
   shootingDistance: 5
@@ -327,7 +327,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 142f3c8fbdd36b840bbb3884110cbabf, type: 3}
   m_Resource: {fileID: 8300000, guid: 142f3c8fbdd36b840bbb3884110cbabf, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.75
   m_Pitch: 1
   Loop: 0
   Mute: 0

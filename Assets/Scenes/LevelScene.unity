@@ -133,7 +133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4871433558350175064, guid: 02c7ecb8d47f9d145be74ae9f1302d64, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5405150993037076273, guid: 02c7ecb8d47f9d145be74ae9f1302d64, type: 3}
       propertyPath: m_LocalScale.x
@@ -626,7 +626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4871433558350175064, guid: 02c7ecb8d47f9d145be74ae9f1302d64, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5405150993037076273, guid: 02c7ecb8d47f9d145be74ae9f1302d64, type: 3}
       propertyPath: m_LocalScale.x
@@ -1552,7 +1552,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4871433558350175064, guid: 02c7ecb8d47f9d145be74ae9f1302d64, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4932821917343299273, guid: 02c7ecb8d47f9d145be74ae9f1302d64, type: 3}
       propertyPath: delayDestroyFloat
@@ -1690,7 +1690,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4871433558350175064, guid: 02c7ecb8d47f9d145be74ae9f1302d64, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4932821917343299273, guid: 02c7ecb8d47f9d145be74ae9f1302d64, type: 3}
       propertyPath: duration
@@ -3810,7 +3810,7 @@ PrefabInstance:
       objectReference: {fileID: 6909103552517579231, guid: b3eb7f827d8084a41a7072dc4a028298, type: 3}
     - target: {fileID: 6378019912258471578, guid: 464b062d52cb8fa4a8861262018e0b44, type: 3}
       propertyPath: maxHealthPlayer
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6378019912258471578, guid: 464b062d52cb8fa4a8861262018e0b44, type: 3}
       propertyPath: delayDestroyFloat

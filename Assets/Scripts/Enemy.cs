@@ -262,6 +262,11 @@ public class Enemy : MonoBehaviour
     
     private IEnumerator DelayDestroy(float delay)
     {
+        EnemyShooting script = GetComponent<EnemyShooting>();
+        if (script != null)
+        {
+            script.enabled = false;
+        }
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<Rigidbody2D>().Sleep();
         GetComponent<Collider2D>().enabled = false;

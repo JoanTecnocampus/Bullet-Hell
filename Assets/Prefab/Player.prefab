@@ -728,7 +728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f23106ec50c7c4d448b3b5a4025041e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealthPlayer: 10
+  maxHealthPlayer: 100
   currentHealthPlayer: 0
   Slider: {fileID: 6414467428257875391, guid: 46dc3ec8f4fa2e7459bb6f76cc4e5121, type: 3}
   shieldActive: 0
