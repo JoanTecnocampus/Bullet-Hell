@@ -22,6 +22,8 @@ public class PlayerHealth : MonoBehaviour
     public AudioSource[] AudioPlayerExplosion;
     
     public float delayDestroyFloat;
+    
+    private bool bIsDead = false;
 
     void Awake()
     {
@@ -44,6 +46,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamagePlayer(int damage)
     {
+        if (bIsDead) return;
         if (shieldActive == false)
         {
             currentHealthPlayer -= damage;
@@ -94,7 +97,7 @@ public class PlayerHealth : MonoBehaviour
             StartCoroutine(DelayDestroy(delayDestroyFloat));
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         }
-
+        bIsDead = true;
         //Destroy(gameObject);
         
     }
@@ -112,6 +115,22 @@ public class PlayerHealth : MonoBehaviour
     
     private IEnumerator DelayDestroy(float delay)
     {
+        // Desde otro script en el mismo GameObject:
+        PlayerController script = GetComponent<PlayerController>();
+        if (script != null)
+        {
+            script.enabled = false;
+        }
+        PlayerShooting script2 = GetComponent<PlayerShooting>();
+        if (script2 != null)
+        {
+            script2.enabled = false;
+        }
+        CameraFollow script3 = GetComponent<CameraFollow>();
+        if (script3 != null)
+        {
+            script3.enabled = false;
+        }
         GetComponent<SpriteRenderer>().enabled = false;
         yield return new WaitForSeconds(delay);
         SceneManager.LoadScene(sceneName);

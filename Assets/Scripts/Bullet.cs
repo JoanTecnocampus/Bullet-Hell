@@ -87,6 +87,10 @@ public class Bullet : MonoBehaviour
                 StartCoroutine(ExplodeAndDestroy());
                 return;
             }
+            else
+            {
+                rb.linearVelocity *= -1;
+            }
         }
 
         actualBounces++;
@@ -132,9 +136,9 @@ public class Bullet : MonoBehaviour
     
     private IEnumerator DelayDestroy(float delay)
     {
-        GetComponent<SpriteRenderer>().enabled = false;
-        GetComponent<Rigidbody2D>().Sleep();
-        GetComponent<Collider2D>().enabled = false;
+        //GetComponent<SpriteRenderer>().enabled = false;
+        //GetComponent<Rigidbody2D>().Sleep();
+        //GetComponent<Collider2D>().enabled = false;
         yield return new WaitForSeconds(delay);
         Destroy(gameObject);
     }

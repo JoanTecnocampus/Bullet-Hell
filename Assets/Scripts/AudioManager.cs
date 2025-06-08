@@ -11,4 +11,13 @@ public class AudioManager : MonoBehaviour
         AudioBackground = GetComponent<AudioSource>();
         AudioBackground.Play();
     }
+    void Start()
+    {
+        AudioBackground = GetComponent<AudioSource>();
+        AudioBackground.loop = true;
+        if (!AudioBackground.isPlaying)
+        {
+            AudioBackground.Play();
+        }
+    }
 }
