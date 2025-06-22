@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fog-Transparent-Free-PNG_0: -576659563341012572
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
