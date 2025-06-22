@@ -12,7 +12,7 @@ public class EnemySlotManager : MonoBehaviour
     private Dictionary<string, List<Transform>> slotGroups = new Dictionary<string, List<Transform>>();
     private Dictionary<Transform, GameObject> occupiedSlots = new Dictionary<Transform, GameObject>();
     
-    private List<Enemy> waitingEnemies = new List<Enemy>();
+    private List<EnemyController> waitingEnemies = new List<EnemyController>();
 
     void Awake()
     {
@@ -163,11 +163,11 @@ public class EnemySlotManager : MonoBehaviour
             // Buscar un enemigo en espera del mismo tipo
             for (int i = 0; i < waitingEnemies.Count; i++)
             {
-                Enemy enemy = waitingEnemies[i];
-                if (enemy != null && enemy.gameObject.tag == GetTagForSlot(slot))
+                EnemyController enemyController = waitingEnemies[i];
+                if (enemyController != null && enemyController.gameObject.tag == GetTagForSlot(slot))
                 {
-                    AssignSlot(slot, enemy.gameObject);
-                    enemy.AssignSlotExternally(slot);
+                    AssignSlot(slot, enemyController.gameObject);
+                    enemyController.AssignSlotExternally(slot);
                     waitingEnemies.RemoveAt(i);
                     break;
                 }
@@ -182,11 +182,11 @@ public class EnemySlotManager : MonoBehaviour
         if (slotGroups["EnemySniper"].Contains(slot)) return "EnemySniper";
         return "";
     }
-    public void RegisterWaitingEnemy(Enemy enemy)
+    public void RegisterWaitingEnemy(EnemyController enemyController)
     {
-        if (!waitingEnemies.Contains(enemy))
+        if (!waitingEnemies.Contains(enemyController))
         {
-            waitingEnemies.Add(enemy);
+            waitingEnemies.Add(enemyController);
         }
     }
 

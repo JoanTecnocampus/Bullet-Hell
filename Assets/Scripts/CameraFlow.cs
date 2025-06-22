@@ -14,7 +14,7 @@ public class CameraFollow : MonoBehaviour
         //AudioEnemyShoot = GetComponents<AudioSource>();
     }
     
-    void LateUpdate()
+    void FixedUpdate()
     {
         if (target == null) return;
 

@@ -2,7 +2,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Enemy : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
     public int maxHealthEnemy = 3;
     private int currentHealthEnemy;

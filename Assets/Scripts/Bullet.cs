@@ -40,7 +40,7 @@ public class Bullet : MonoBehaviour
 
         if (collider.CompareTag("Enemy") || collider.CompareTag("EnemyTank") || collider.CompareTag("EnemySniper"))
         {
-            Enemy enemy = collider.GetComponent<Enemy>();
+            EnemyController enemyController = collider.GetComponent<EnemyController>();
             if (audioPlaying == false)
             {
                 //AudioManager.Instance.PlaySound("enemyShoot");
@@ -53,9 +53,9 @@ public class Bullet : MonoBehaviour
                 StartCoroutine(DelayAudio(delayAudioFloat));
                 StartCoroutine(DelayDestroy(delayDestroyFloat));
             }
-            if (enemy != null)
+            if (enemyController != null)
             {
-                enemy.TakeDamage(damage);
+                enemyController.TakeDamage(damage);
             }
 
             if (!canBounce)

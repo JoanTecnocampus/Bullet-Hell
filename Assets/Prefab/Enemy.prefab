@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyBulletPrefab: {fileID: 7768207013560146916, guid: 9ec3a780a42d45e4bb20dfe3eaad27fb, type: 3}
-  Player: {fileID: 0}
+  Player: {fileID: 7978128242596094633, guid: 464b062d52cb8fa4a8861262018e0b44, type: 3}
   firePointEnemy: {fileID: 6616030826744013541}
   bulletSpeed: 0.0001
   fireRate: 0.3

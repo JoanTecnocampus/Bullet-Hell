@@ -180,6 +180,7 @@ MonoBehaviour:
   speed: 15
   lifetime: 2
   damage: 1
+  bulletExplosionPrefab: {fileID: 8101636738496698757, guid: 338553078b6c72542880cf8af335afa7, type: 3}
 --- !u!82 &1024035846118645542
 AudioSource:
   m_ObjectHideFlags: 0
